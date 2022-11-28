@@ -1,5 +1,16 @@
 <?php
+$length = $_GET["length"];
+var_dump($length);
 
+$upper_case = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+$lower_case = "abdcefghijklmnñopqrstuvwxyz";
+$numbers = "0123456789";
+$symbols = "+*^ç-_<>¿?¡![]#$%&/()=|{}";
+
+function createPassword($length)
+{
+    $password = "";
+}
 ?>
 
 
@@ -19,7 +30,7 @@
 
         <form action="index.php" method="GET">
             <label for="length">Lunghezza</label>
-            <input class="form-control mt-3" type="text" id="length" name="length">
+            <input class="form-control mt-3" type="number" id="length" name="length">
             <button class="btn btn-primary mt-3" type="submit">Submit</button>
         </form>
 
