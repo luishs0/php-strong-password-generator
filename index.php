@@ -5,12 +5,13 @@ var_dump($length);
 $caracters = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZabdcefghijklmnñopqrstuvwxyz0123456789+*^-_<>¿?¡![]#$%&/()={}";
 $caracters_length = strlen($caracters);
 $password = "";
+var_dump($caracters_length);
 
 function createPassword($length, $caracters, $caracters_length, $password)
 {
 
     for ($i = 0; $i < $length; $i++) {
-        $cur_caracter = $caracters[rand(0, $caracters_length)];
+        $cur_caracter = $caracters[rand(0, ($caracters_length - 1))];
         $password = $password . $cur_caracter;
     }
     return $password;
