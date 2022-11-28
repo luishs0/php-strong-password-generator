@@ -12,5 +12,8 @@ function createPassword($length, $caracters, $caracters_length, $password)
         $cur_caracter = $caracters[rand(0, ($caracters_length - 1))];
         $password = $password . $cur_caracter;
     }
+    if (!empty($password)) {
+        $_SESSION["password"] = $password;
+    }
     return $password;
 }

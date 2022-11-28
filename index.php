@@ -1,5 +1,6 @@
 <?php
-include __DIR__ . "/functions.php";
+session_start();
+include_once __DIR__ . "/functions.php";
 ?>
 
 
@@ -15,7 +16,10 @@ include __DIR__ . "/functions.php";
 </head>
 
 <body>
+
     <div class="container mt-5">
+
+        <h1>PASSWORD GENERATOR</h1>
 
         <form action="index.php" method="GET">
             <label for="length">Lunghezza</label>
@@ -23,10 +27,11 @@ include __DIR__ . "/functions.php";
             <button class="btn btn-primary mt-3 mb-3" type="submit">Submit</button>
         </form>
 
-        <h5>Password:</h5>
-
+        <?php if ($length !== 0) { ?>
+            <a href="password.php">Vedere la tua Password</a>
+        <?php } ?>
         <?php
-        echo createPassword($length, $caracters, $caracters_length, $password);
+        createPassword($length, $caracters, $caracters_length, $password);
         ?>
 
     </div>
