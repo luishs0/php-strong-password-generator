@@ -1,11 +1,9 @@
 <?php
-$length = intval($_GET["length"]);
-var_dump($length);
+$length = intval($_GET["length"] ?? 0);
 
 $caracters = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZabdcefghijklmnñopqrstuvwxyz0123456789+*^-_<>¿?¡![]#$%&/()={}";
 $caracters_length = strlen($caracters);
 $password = "";
-var_dump($caracters_length);
 
 function createPassword($length, $caracters, $caracters_length, $password)
 {
@@ -37,8 +35,10 @@ function createPassword($length, $caracters, $caracters_length, $password)
         <form action="index.php" method="GET">
             <label for="length">Lunghezza</label>
             <input class="form-control mt-3" type="number" id="length" name="length">
-            <button class="btn btn-primary mt-3" type="submit">Submit</button>
+            <button class="btn btn-primary mt-3 mb-3" type="submit">Submit</button>
         </form>
+
+        <h5>Password:</h5>
 
         <?php
         echo createPassword($length, $caracters, $caracters_length, $password);
