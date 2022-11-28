@@ -1,16 +1,21 @@
 <?php
-$length = $_GET["length"];
+$length = intval($_GET["length"]);
 var_dump($length);
 
-$upper_case = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
-$lower_case = "abdcefghijklmnñopqrstuvwxyz";
-$numbers = "0123456789";
-$symbols = "+*^ç-_<>¿?¡![]#$%&/()=|{}";
+$caracters = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZabdcefghijklmnñopqrstuvwxyz0123456789+*^-_<>¿?¡![]#$%&/()={}";
+$caracters_length = strlen($caracters);
+$password = "";
 
-function createPassword($length)
+function createPassword($length, $caracters, $caracters_length, $password)
 {
-    $password = "";
+
+    for ($i = 0; $i < $length; $i++) {
+        $cur_caracter = $caracters[rand(0, $caracters_length)];
+        $password = $password . $cur_caracter;
+    }
+    return $password;
 }
+
 ?>
 
 
@@ -33,6 +38,10 @@ function createPassword($length)
             <input class="form-control mt-3" type="number" id="length" name="length">
             <button class="btn btn-primary mt-3" type="submit">Submit</button>
         </form>
+
+        <?php
+        echo createPassword($length, $caracters, $caracters_length, $password);
+        ?>
 
     </div>
 </body>
